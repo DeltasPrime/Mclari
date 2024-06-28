@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Productos</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'product/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="banner">
+            <img src="{% static 'product/banner.png' %}" alt="Logo de tu empresa">
+        </div>
+
+        <h1>Lista de Productos</h1>
+        <div class="search-sort-container">
+            <input type="text" id="search" class="search-bar" placeholder="Buscar por nombre...">
+            <select id="sort" class="sort-select">
+                <option value="precio_asc">Precio: Menor a Mayor</option>
+                <option value="precio_desc">Precio: Mayor a Menor</option>
+                <option value="marca_asc">Marca: A-Z</option>
+                <option value="marca_desc">Marca: Z-A</option>
+                <option value="tipo_asc">Tipo: A-Z</option>
+                <option value="tipo_desc">Tipo: Z-A</option>
+                <option value="stock_asc">Stock: Menor a Mayor</option>
+                <option value="stock_desc">Stock: Mayor a Menor</option>
+            </select>
+            <div class="currency-container">
+                <label for="currency">Mostrar precios en:</label>
+                <select id="currency" onchange="convertPrices()">
+                    <option value="CLP">Pesos Chilenos (CLP)</option>
+                    <option value="USD">Dólares (USD)</option>
+                    <option value="EUR">Euros (EUR)</option>
+                </select>
+            </div>
+            <a href="{% url 'add-product' %}" class="add-product-btn">Agregar Nuevo Producto</a>
+        </div>
+        <div id="product-list">
+            {% for product in products %}
+            <div class="product-card">
+                {% if product.imagen %}
+                    <img src="{{ product.imagen.url }}" alt="{{ product.nombre }}">
+                {% else %}
+                    <img src="{% static 'product/default_image.jpg' %}" alt="{{ product.nombre }}">
+                {% endif %}
+                <div class="product-details">
+                    <h2 class="product-name">{{ product.nombre }}</h2>
+                    <p class="product-marca">{{ product.marca }}</p>
+                    <p class="product-precio">Precio: ${{ product.precio_valor }} CLP</p>
+                    <p class="product-stock">Stock: {{ product.stock }}</p>
+                    <p class="product-tipo">Tipo: {{ product.tipo }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <div id="pagination" class="pagination"></div>
+
+        <div class="cartel">
+            {% if race_info %}
+            <div class="race-info">
+                Resultados Última Carrera del {{ race_info.raceName }} en {{ race_info.Circuit.Location.locality }}, {{ race_info.Circuit.Location.country }}
+            </div>
+            {% endif %}
+            {% for pilot in top_3_pilots %}
+            <div class="pilot-card">
+                <div class="pilot-position">{{ forloop.counter }}</div>
+                <img src="{{ pilot.headshot_url }}" alt="Imagen de {{ pilot.Driver.givenName }} {{ pilot.Driver.familyName }}" width="50">
+                <div class="pilot-info">
+                    <div>
+                        <p>{{ pilot.Driver.givenName }} {{ pilot.Driver.familyName }}</p>
+                    </div>
+                    <div>
+                        <p>{{ pilot.team_name }}</p>
+                    </div>
+                    <div>
+                        <p>{{ pilot.Time.time }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <script src="{% static 'product/script.js' %}"></script>
+</body>
+</html>

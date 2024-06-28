@@ -1,0 +1,250 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #171717 ;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin: 20px 0;
+}
+
+.search-sort-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#search {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin-right: 10px;
+}
+
+#sort {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin-right: 10px;
+}
+
+.currency-container {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.currency-container label {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+.currency-container select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+}
+
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    width: calc(33.333% - 20px);
+    margin: 10px;
+    background-color: #2F2F34 ;
+    border: 3px solid #D01100;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+    float: left;
+    box-sizing: border-box;
+}
+
+.product-card img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;  
+}
+
+.product-card:hover {
+    box-shadow: 0 10px 25px rgba(255, 107, 70, 0.527);
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.product-name, .product-marca, .product-precio, .product-stock, .product-tipo {
+    font-size: 1em;
+    color: #ffffff;
+    margin: 0;
+}
+
+.product-precio {
+    font-size: 1.2em;
+    color: #ff9c19;
+    margin-bottom: 10px;
+}
+
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.banner {
+    width: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.cartel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1F1F23;
+    border: 3px solid #D01100;
+    padding: 20px;
+    border-radius: 4px; 
+    margin-top: 20px;
+}
+.pilot-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #2F2F34;
+    border: 2px solid #da7b00;
+    color: #ffffff;
+    border-radius: 5px;
+}
+.pilot-position {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.pilot-card img {
+    width: 10%;
+    margin-right: 20px;
+}
+.pilot-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.pilot-info div {
+    margin-right: 20px;
+}
+.race-info {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #ffffff;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.add-product-btn, .back-to-list-btn {
+    padding: 10px 20px;
+    background-color:#D01100;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    font-size: 16px; 
+    font-weight: bold; 
+}
+
+.add-product-btn:hover, .back-to-list-btn:hover {
+    background-color: #ff960e;
+    color: #D01100;
+}
+
+.product-form input, .product-form select, .product-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.product-form input[type="file"] {
+    padding: 3px;
+}
+
+
+.product-form label {
+    display: block;
+    font-weight: bold; 
+    color: #ffffff; 
+    margin-bottom: 5px; 
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 20px;
+    background-color: #D01100;
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: background-color 0.3s ease;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.pagination button:hover {
+    background-color: #ff960e;
+    color: #D01100;
+}
+
+.pagination span {
+    padding: 10px 20px;
+    background-color: #750000;
+    color: #ffffff;
+    border-radius: 15px;
+    margin: 0 5px;
+    font-size: 16px;
+    font-weight: bold;
+}
